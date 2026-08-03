@@ -1,0 +1,25 @@
+.justfile
+  s_53b7d159ab3fa3::t_7c63936b1a851e 10-13
+  s_53b7d159ab3fa3::t_85902fbcd58b62 21
+  s_53b7d159ab3fa3::t_8b1f002bff7c2f 8
+  s_53b7d159ab3fa3::t_8951d91c44df65 15-16,18-19,22
+  s_53b7d159ab3fa3::t_3acda2b4b54c9f 3-7,14,17,20
+  s_53b7d159ab3fa3::t_c64658803feab9 1-2
+  s_53b7d159ab3fa3::t_ae794b7b7ba7b3 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "609bbc1f27a16d40bbcf17f7aedc01fa76488cef",
+  "prompts": {},
+  "sessions": {
+    "s_53b7d159ab3fa3": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019fc899-3d3d-7fd6-825e-bdcf61206bf7",
+        "model": "MiniMax-M3"
+      },
+      "human_author": "cyan <cyan@cyan.fish>"
+    }
+  }
+}
