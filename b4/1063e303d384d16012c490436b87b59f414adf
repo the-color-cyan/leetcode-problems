@@ -1,0 +1,16 @@
+code/1406.stone-game-iii.tests.dat
+  h_441bd1542c405a 1-3
+code/1406.stone-game-iii.ts
+  h_441bd1542c405a 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "b41063e303d384d16012c490436b87b59f414adf",
+  "prompts": {},
+  "humans": {
+    "h_441bd1542c405a": {
+      "author": "cyan <cyan@cyan.fish>"
+    }
+  }
+}
