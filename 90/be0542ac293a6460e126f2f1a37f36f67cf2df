@@ -1,0 +1,16 @@
+code/3310.remove-methods-from-project.tests.dat
+  h_441bd1542c405a 1-9
+code/3310.remove-methods-from-project.ts
+  h_441bd1542c405a 1-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "90be0542ac293a6460e126f2f1a37f36f67cf2df",
+  "prompts": {},
+  "humans": {
+    "h_441bd1542c405a": {
+      "author": "cyan <cyan@cyan.fish>"
+    }
+  }
+}
