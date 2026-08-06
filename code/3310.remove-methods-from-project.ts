@@ -3,8 +3,23 @@ function remainingMethods(
     k: number,
     invocations: number[][],
 ): number[] {
-    const methods = mapMethods(invocations);
-    const suspicious = findSuspicious(k, methods);
+    const methods: Method[] = mapMethods(n, invocations);
+    const sus: Set<MethodId> = findSus(k, methods);
+    const nonSus: Set<MethodId> = new Set(
+        [...methods.keys()].filter((id) => !sus.has(id)),
+    );
+
+    for (const methodId of nonSus) {
+        let method = methods[methodId];
+
+        for (const invokedId of method.invokes) {
+            if (sus.has(invokedId)) {
+                return [...methods.keys()];
+            }
+        }
+    }
+
+    return [...nonSus];
 }
 
 type MethodId = number;
@@ -13,42 +28,30 @@ type Method = {
     invokes: Set<MethodId>;
 };
 
-function mapMethods(invocations: number[][]): Map<MethodId, Method> {
-    let methods = new Map<MethodId, Method>();
+function mapMethods(n: number, invocations: number[][]): Method[] {
+    const methods: Method[] = Array.from({ length: n }, () => {
+        return {
+            invokes: new Set<MethodId>(),
+        };
+    });
 
     for (const [id, invocation] of invocations) {
-        upsertInvocation(id, invocation, methods);
+        methods[id].invokes.add(invocation);
     }
 
     return methods;
 }
 
-function upsertInvocation(
-    id: MethodId,
-    invocation: MethodId,
-    methods: Map<MethodId, Method>,
-) {
-    const method = methods.get(id);
+function findSus(buggedId: MethodId, methods: Method[]): Set<MethodId> {
+    let sus = new Set<MethodId>([buggedId]);
 
-    if (method !== undefined) {
-        method.invokes.add(invocation);
-    } else {
-        methods.set(id, {
-            invokes: new Set([invocation]),
-        });
+    for (const susId of sus) {
+        const nextSus = methods[susId].invokes;
+
+        for (const nextSusId of nextSus) {
+            if (!sus.has(nextSusId)) sus.add(nextSusId);
+        }
     }
-}
 
-function findSuspicious(
-    buggedId: MethodId,
-    methods: Map<MethodId, Method>,
-): Set<MethodId> {
-    const buggedMethod = methods.get(buggedId);
-
-    let sus = buggedMethod.invokes;
-    sus.add(buggedId);
-
-    let allLooped = false;
-
-    while (allLooped) {}
+    return sus;
 }
