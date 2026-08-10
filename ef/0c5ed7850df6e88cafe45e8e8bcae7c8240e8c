@@ -1,0 +1,16 @@
+code/1.two-sum.go
+  h_441bd1542c405a 6,8-9,14-15
+code/2.add-two-numbers.go
+  h_441bd1542c405a 1-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "ef0c5ed7850df6e88cafe45e8e8bcae7c8240e8c",
+  "prompts": {},
+  "humans": {
+    "h_441bd1542c405a": {
+      "author": "cyan <cyan@cyan.fish>"
+    }
+  }
+}
