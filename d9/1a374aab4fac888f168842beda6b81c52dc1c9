@@ -1,0 +1,14 @@
+.justfile
+  h_441bd1542c405a 21-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "d91a374aab4fac888f168842beda6b81c52dc1c9",
+  "prompts": {},
+  "humans": {
+    "h_441bd1542c405a": {
+      "author": "cyan <cyan@cyan.fish>"
+    }
+  }
+}
