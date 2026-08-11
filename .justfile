@@ -18,5 +18,5 @@ work number language=_lang:
         pick_arg="{{number}}"
         edit_arg="{{number}} -l {{language}}"
     fi
-    supacode surface split -d h -i "clear && leetcode pick $pick_arg | bat"
+    supacode surface split -d h -i "clear && leetcode pick $pick_arg | cat"
     supacode surface focus -s "$SUPACODE_SURFACE_ID" -i "leetcode edit $edit_arg"
