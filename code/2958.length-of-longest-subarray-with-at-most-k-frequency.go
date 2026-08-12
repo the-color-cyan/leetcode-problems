@@ -1,5 +1,5 @@
 func maxSubarrayLength(nums []int, k int) int {
-	freq := map[int]int{}
+	freq := make(map[int]int, len(nums))
 	longest, left := 0, 0
 
 	for right := range nums {
