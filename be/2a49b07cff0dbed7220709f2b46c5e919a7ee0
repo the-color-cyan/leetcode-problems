@@ -1,0 +1,14 @@
+code/3.longest-substring-without-repeating-characters.go
+  h_441bd1542c405a 1-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "be2a49b07cff0dbed7220709f2b46c5e919a7ee0",
+  "prompts": {},
+  "humans": {
+    "h_441bd1542c405a": {
+      "author": "cyan <cyan@cyan.fish>"
+    }
+  }
+}
