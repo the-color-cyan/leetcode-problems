@@ -1,0 +1,14 @@
+code/3.longest-substring-without-repeating-characters.ts
+  h_441bd1542c405a 2-3,8-10,13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "6957e9274e37b610b0183536c0cb311d082afea2",
+  "prompts": {},
+  "humans": {
+    "h_441bd1542c405a": {
+      "author": "cyan <cyan@cyan.fish>"
+    }
+  }
+}
