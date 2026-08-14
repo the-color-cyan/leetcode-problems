@@ -1,0 +1,16 @@
+code/3090.maximum-length-substring-with-two-occurrences.go
+  h_441bd1542c405a 1-32
+code/3090.maximum-length-substring-with-two-occurrences.tests.dat
+  h_441bd1542c405a 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "32cf0c3b9437ef06c63d14a39fd99877cdec5645",
+  "prompts": {},
+  "humans": {
+    "h_441bd1542c405a": {
+      "author": "cyan <cyan@cyan.fish>"
+    }
+  }
+}
