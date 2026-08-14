@@ -1,0 +1,16 @@
+code/2996.smallest-missing-integer-greater-than-sequential-prefix-sum.go
+  h_441bd1542c405a 1-56
+code/2996.smallest-missing-integer-greater-than-sequential-prefix-sum.tests.dat
+  h_441bd1542c405a 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "0c9ab8c536b882b04cf6af5ab4bb8513fedd3907",
+  "prompts": {},
+  "humans": {
+    "h_441bd1542c405a": {
+      "author": "cyan <cyan@cyan.fish>"
+    }
+  }
+}

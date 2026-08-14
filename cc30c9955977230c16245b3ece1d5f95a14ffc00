@@ -1,0 +1,16 @@
+code/2213.longest-substring-of-one-repeating-character.go
+  h_441bd1542c405a 1-6
+code/2213.longest-substring-of-one-repeating-character.tests.dat
+  h_441bd1542c405a 1-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "cc30c9955977230c16245b3ece1d5f95a14ffc00",
+  "prompts": {},
+  "humans": {
+    "h_441bd1542c405a": {
+      "author": "cyan <cyan@cyan.fish>"
+    }
+  }
+}
