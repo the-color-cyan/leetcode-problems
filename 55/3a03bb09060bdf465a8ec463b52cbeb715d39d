@@ -1,0 +1,14 @@
+code/1386.cinema-seat-allocation.go
+  h_441bd1542c405a 4-6,9,15,28-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "553a03bb09060bdf465a8ec463b52cbeb715d39d",
+  "prompts": {},
+  "humans": {
+    "h_441bd1542c405a": {
+      "author": "cyan <cyan@cyan.fish>"
+    }
+  }
+}
