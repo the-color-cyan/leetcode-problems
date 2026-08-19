@@ -1,24 +1,36 @@
-func stoneGameV(stoneValue []int) int {
-	i := Interval{0, len(stoneValue)}
-
-	return bestScore(i, stoneValue)
-}
-
 type Interval struct {
 	start int
 	end   int
 }
 
+type Prefix []int
+
+type Memo [][]int
+
 func (i Interval) Len() int {
 	return i.end - i.start
 }
 
-type Memo [][]int
+func (i Interval) Sum(p Prefix) int {
+	return p[i.end] - p[i.start]
+}
+
+func NewPrefix(arr []int) Prefix {
+	prefix := make([]int, len(arr)+1)
+
+	for i, v := range arr {
+		prefix[i+1] = prefix[i] + v
+	}
+
+	return prefix
+}
 
 func NewMemo(l int) Memo {
-	memo := make([][]int, l)
+	size := l + 1
+	memo := make([][]int, size)
+
 	for i := range memo {
-		memo[i] = make([]int, l)
+		memo[i] = make([]int, size)
 
 		for j := range memo[i] {
 			memo[i][j] = -1
@@ -28,7 +40,7 @@ func NewMemo(l int) Memo {
 	return memo
 }
 
-func (m Memo) Add(i Interval, v int) {
+func (m Memo) Set(i Interval, v int) {
 	m[i.start][i.end] = v
 }
 
@@ -42,11 +54,31 @@ func (m Memo) Get(i Interval) (int, bool) {
 	return v, true
 }
 
-func bestScore(i Interval, arr []int) int {
-	memo := NewMemo(len(arr) + 1)
-	prefix := prefixSums(arr)
+func stoneGameV(stoneValue []int) int {
+	full := Interval{0, len(stoneValue)}
+	memo := NewMemo(len(stoneValue))
+	prefix := NewPrefix(stoneValue)
 
 	var best func(Interval) int
+
+	scoreAtCut := func(i Interval, cut int) int {
+		left, right := Interval{i.start, cut}, Interval{cut, i.end}
+		leftSum, rightSum := left.Sum(prefix), right.Sum(prefix)
+
+		switch {
+		case leftSum > rightSum:
+			return rightSum + best(right)
+
+		case rightSum > leftSum:
+			return leftSum + best(left)
+
+		default:
+			leftBest := best(left)
+			rightBest := best(right)
+
+			return leftSum + max(leftBest, rightBest)
+		}
+	}
 
 	best = func(i Interval) int {
 		length := i.Len()
@@ -55,58 +87,26 @@ func bestScore(i Interval, arr []int) int {
 			panic("invalid interval")
 		}
 
-		score, ok := memo.Get(i)
+		memoScore, ok := memo.Get(i)
 		if ok {
-			return score
+			return memoScore
 		}
 
 		if length == 1 {
-			memo.Add(i, 0)
+			memo.Set(i, 0)
 			return 0
 		}
 
-		score = 0
+		score := 0
 
 		for cut := i.start + 1; cut < i.end; cut++ {
-			left, right := Interval{i.start, cut}, Interval{cut, i.end}
-			leftSum, rightSum := intervalSum(left, prefix), intervalSum(right, prefix)
-
-			var candidate int
-
-			switch {
-			case leftSum > rightSum:
-				candidate = rightSum + best(right)
-
-			case rightSum > leftSum:
-				candidate = leftSum + best(left)
-
-			default:
-				leftBest := best(left)
-				rightBest := best(right)
-
-				candidate = leftSum + max(leftBest, rightBest)
-			}
-
+			candidate := scoreAtCut(i, cut)
 			score = max(candidate, score)
 		}
 
-		memo.Add(i, score)
+		memo.Set(i, score)
 		return score
 	}
 
-	return best(i)
-}
-
-func intervalSum(i Interval, prefix []int) (sum int) {
-	return prefix[i.end] - prefix[i.start]
-}
-
-func prefixSums(arr []int) []int {
-	prefix := make([]int, len(arr)+1)
-
-	for i, v := range arr {
-		prefix[i+1] = prefix[i] + v
-	}
-
-	return prefix
+	return best(full)
 }
