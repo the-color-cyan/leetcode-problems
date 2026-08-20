@@ -25,13 +25,27 @@ type SeatBlock [blockSize]int
 // 	return exists
 // }
 
-func groupFitMap(seatBlocks []SeatBlock) map[int]int {
-	fitMap := make(map[int]int)
+func excludedBlocksInRowBySeatAllocation(seatBlocks []SeatBlock) map[int]int {
+	exclusionMap := make(map[int]int)
+	goodBlocks := 
 
-	for _, block := range seatBlocks {
-		for _, seat := range block {
+	for seat := 1; seat <= seatsPerRow; seat++ {
+		for _, block := range seatBlocks {
+			if isSeatInBlock(seat, block) {
+				goodBlocks--
+			}
 		}
 	}
+}
+
+func isSeatInBlock(seat int, block SeatBlock) bool {
+	for _, blockSeat := range block {
+		if seat == blockSeat {
+			return true
+		}
+	}
+
+	return false
 }
 
 func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
